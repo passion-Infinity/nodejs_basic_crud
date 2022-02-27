@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('include/_head')%>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <%- include('include/_header')%>
+    </header>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <h1 class="title">User Management</h1>
+            <a href="/add-user" class="link">Add New User</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Fullname</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i = 0; i < users.length; i++) { %>
+                        <tr>
+                            <th><%= (i + 1) %></th>
+                            <td><%= users[i].username %></td>
+                            <td><%= users[i].password %></td>
+                            <td><%= users[i].fullname %></td>
+                            <td>
+                                <a href="/update-user" class="btn btn-primary">Update</a>
+                            </td>
+                            <td>
+                                <a href="/" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <%- include('include/_script')%>
+</body>
+
+</html>
